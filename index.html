@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Timer</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #timer { font-size: 150px; margin: 20px; }
+        #stats { font-size: 20px; margin-bottom: 20px; }
+        .menu button { font-size: 20px; padding: 10px; margin: 5px; }
+        input, select { font-size: 18px; padding: 5px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Body For Life</h1>
+    <div id="timer">00:00</div>
+    <div class="controls">
+        <button onclick="startTimer()">Start Timer</button>
+        <button onclick="stopTimer()">Stop Timer</button>
+    </div>
+    <div id="stats">
+        <p>Weight: <input type="number" id="weight" placeholder="Enter weight (lbs)"></p>
+        <p>Calories Burned: <input type="number" id="calories" placeholder="Enter calories"></p>
+        <p>Workout Type: 
+            <select id="workoutType" onchange="updateWorkoutType()">
+                <option value="Upper Body">Upper Body</option>
+                <option value="Lower Body">Lower Body</option>
+                <option value="Cardio">Cardio</option>
+            </select>
+        </p>
+    </div>
+    <script>
+        function updateWorkoutType() {
+            let workoutType = document.getElementById('workoutType').value;
+            document.getElementById('upperBodyOptions').style.display = (workoutType === "Upper Body") ? 'block' : 'none';
+            document.getElementById('lowerBodyOptions').style.display = (workoutType === "Lower Body") ? 'block' : 'none';
+            document.getElementById('cardioOptions').style.display = (workoutType === "Cardio") ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
