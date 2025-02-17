@@ -11,6 +11,10 @@
         #stats { font-size: 20px; margin-bottom: 20px; }
         .menu button { font-size: 20px; padding: 10px; margin: 5px; }
         input, select { font-size: 18px; padding: 5px; margin: 5px; }
+        .calendar-container { display: flex; justify-content: center; margin-top: 20px; }
+        .calendar { border-collapse: collapse; }
+        .calendar td { width: 40px; height: 40px; text-align: center; cursor: pointer; border: 1px solid #000; }
+        .completed { background-color: red; color: white; }
     </style>
 </head>
 <body>
@@ -31,7 +35,31 @@
             </select>
         </p>
     </div>
-    <script>
+    <div id="upperBodyOptions" style="display: none;">
+        <p>Chest: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Shoulders: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Biceps: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Back: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Triceps: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+    </div>
+    <div id="lowerBodyOptions" style="display: none;">
+        <p>Quadriceps: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Hamstrings: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Calves: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+        <p>Abdominals: <input type="number" placeholder="Set 1"> <input type="number" placeholder="Set 2"> <input type="number" placeholder="Set 3"></p>
+    </div>
+    <div id="cardioOptions" style="display: none;">
+        <p>Type: 
+            <select id="cardioType">
+                <option value="Treadmill">Treadmill</option>
+                <option value="Running">Running</option>
+                <option value="Walking">Walking</option>
+            </select>
+        </p>
+        <p>Time: <input type="number" id="cardioTime" placeholder="Minutes"></p>
+        <p>Distance: <input type="number" id="cardioDistance" placeholder="Miles"></p>
+    </div>
+        <script>
         function updateWorkoutType() {
             let workoutType = document.getElementById('workoutType').value;
             document.getElementById('upperBodyOptions').style.display = (workoutType === "Upper Body") ? 'block' : 'none';
@@ -39,5 +67,6 @@
             document.getElementById('cardioOptions').style.display = (workoutType === "Cardio") ? 'block' : 'none';
         }
     </script>
+</script>
 </body>
 </html>
